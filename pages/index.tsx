@@ -4,11 +4,13 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useQuery, useMutation } from '../convex/_generated/react'
 import { useCallback } from 'react'
+import { ItemView } from '../components/Item'
+import { CartItemView } from '../components/CartItem'
 
 const Home: NextPage = () => {
-  const counter = useQuery('getCounter', 'clicks') ?? 0
-  const increment = useMutation('incrementCounter')
-  const incrementByOne = useCallback(() => increment('clicks', 1), [increment])
+  const items = useQuery('getItems') ?? []
+  const cartItems = useQuery('getCart') ?? []
+  const createItem = useMutation('createItem')
 
   return (
     <div className={styles.container}>
@@ -19,17 +21,33 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js</a> with{' '}
-          <a href="https://convex.dev">Convex</a>
-        </h1>
+        <div>Hey you, buy some shit at</div>
+        <h1 className={styles.title}>Swaghaus</h1>
 
-        <p className={styles.description}>
-          {"Here's the counter:"} {counter}
-        </p>
-        <button className={styles.button} onClick={incrementByOne}>
-          Add One!
-        </button>
+        {/* <button className={styles.button} onClick={(_event) => createItem()}>
+          Add Item
+        </button> */}
+        <div className={styles.parent}>
+          <div className={styles.left}>
+            <div>
+              {items.map((item) => (
+                <ItemView item={item} key={item._id.toString()} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.right}>
+            <h2>Shopping Cart</h2>
+            <div>
+              {cartItems.map(({ cartItem, item }) => (
+                <CartItemView
+                  cartItem={cartItem}
+                  item={item}
+                  key={cartItem._id.toString()}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>

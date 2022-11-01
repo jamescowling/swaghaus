@@ -2,7 +2,7 @@
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .main {
@@ -109,4 +109,128 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+  border: black solid 2px;
+  padding: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
+}
+
+.itemImage {
+  width: 150px;
+  object-fit: contain;
+}
+
+.itemText {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.itemName {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.itemDesc {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.itemPrice {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.itemButton {
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 0.5rem;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  text-align: center;
+  width: 120px;
+}
+
+.itemButton:hover,
+.itemButton:focus,
+.itemButton:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+}
+
+.cartItemImage {
+  width: 80px;
+  object-fit: contain;
+}
+
+.cartItemText {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.cartItemName {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cartItemPrice {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.cartItemButton {
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 0.4rem;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  text-align: center;
+  width: 90px;
+}
+
+.cartItemButton:hover,
+.cartItemButton:focus,
+.cartItemButton:active {
+  color: #0070f3;
+  border-color: #0070f3;
 }
