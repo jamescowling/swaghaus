@@ -8,6 +8,7 @@ export default defineSchema({
     remaining: s.number(),
   }),
   carts: defineTable({
+    userToken: s.string(),
     itemId: s.id('items'),
     count: s.number(),
   }),

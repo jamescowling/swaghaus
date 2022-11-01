@@ -4,9 +4,18 @@ import { Document } from '../convex/_generated/dataModel'
 export default query(
   async ({
     db,
+    auth,
   }): Promise<{ cartItem: Document<'carts'>; item: Document<'items'> }[]> => {
-    const cart = await db.query('carts').collect()
-    // TODO make parallel
+    const identity = await auth.getUserIdentity()
+    if (!identity) {
+      throw new Error('getCart called without user auth')
+    }
+    const userToken = identity.tokenIdentifier
+
+    const cart = await db
+      .query('carts')
+      .filter((q) => q.eq(q.field('userToken'), userToken))
+      .collect()
     const cartsAndItems = await Promise.all(
       cart.map(async (cartItem) => {
         const item = await db.get(cartItem.itemId)

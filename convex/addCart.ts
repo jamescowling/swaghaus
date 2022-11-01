@@ -3,7 +3,13 @@ import { mutation } from './_generated/server'
 
 // Moves the item to the given shopping cart and deducts one from the quantity
 // in stock.
-export default mutation(async ({ db }, itemId: Id<'items'>) => {
+export default mutation(async ({ db, auth }, itemId: Id<'items'>) => {
+  const identity = await auth.getUserIdentity()
+  if (!identity) {
+    throw new Error('getCart called without user auth')
+  }
+  const userToken = identity.tokenIdentifier
+
   // Check the item exists and has sufficient stock.
   const item = await db.get(itemId)
   if (item === null) {
@@ -16,10 +22,16 @@ export default mutation(async ({ db }, itemId: Id<'items'>) => {
   // Add item to cart or increment count in cart.
   const cartItem = await db
     .query('carts')
-    .filter((q) => q.eq(q.field('itemId'), itemId))
+    .filter((q) =>
+      q.and(
+        q.eq(q.field('userToken'), userToken),
+        q.eq(q.field('itemId'), itemId)
+      )
+    )
     .first()
   if (cartItem === null) {
     db.insert('carts', {
+      userToken,
       itemId: itemId,
       count: 1,
     })

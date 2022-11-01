@@ -1,10 +1,21 @@
 import { Id } from './_generated/dataModel'
 import { mutation } from './_generated/server'
 
-export default mutation(async ({ db }, cartItemId: Id<'carts'>) => {
+export default mutation(async ({ db, auth }, cartItemId: Id<'carts'>) => {
+  const identity = await auth.getUserIdentity()
+  if (!identity) {
+    throw new Error('getCart called without user auth')
+  }
+  const userToken = identity.tokenIdentifier
+
   const cartItem = await db.get(cartItemId)
   if (cartItem === null) {
     throw new Error(`No cart item with id ${cartItemId}`)
+  }
+  if (cartItem.userToken != userToken) {
+    throw new Error(
+      `Cart item ${cartItemId} has user ${cartItem.userToken} instead of ${userToken}`
+    )
   }
   const item = await db.get(cartItem.itemId)
   if (item === null) {
