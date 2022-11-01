@@ -3,9 +3,25 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useQuery, useMutation } from '../convex/_generated/react'
-import { useCallback } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { ItemView } from '../components/Item'
 import { CartItemView } from '../components/CartItem'
+
+function Logout() {
+  const { logout, user } = useAuth0()
+  return (
+    <div>
+      {/* We know this component only renders if the user is logged in. */}
+      <p>Logged in{user!.name ? ` as ${user!.name}` : ''}</p>
+      <button
+        className="btn btn-primary"
+        onClick={() => logout({ returnTo: window.location.origin })}
+      >
+        Log out
+      </button>
+    </div>
+  )
+}
 
 const Home: NextPage = () => {
   const items = useQuery('getItems') ?? []
@@ -23,6 +39,12 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div>Hey you, buy some shit at</div>
         <h1 className={styles.title}>Swaghaus</h1>
+
+        <div className="text-center">
+          <span>
+            <Logout />
+          </span>
+        </div>
 
         {/* <button className={styles.button} onClick={(_event) => createItem()}>
           Add Item
