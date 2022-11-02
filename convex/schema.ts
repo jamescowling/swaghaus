@@ -6,6 +6,7 @@ export default defineSchema({
     description: s.string(),
     price: s.number(),
     remaining: s.number(),
+    image: s.string(),
   }),
   carts: defineTable({
     userToken: s.string(),

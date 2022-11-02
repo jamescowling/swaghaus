@@ -16,9 +16,11 @@ function Logout() {
           borderRadius: "20%",
           margin: "10px",
         }}/>
+        <div style={{marginBottom: "40px"}}>
       <button onClick={() => logout({ returnTo: window.location.origin })}>
         Log out {user!.name}
       </button>
+      </div>
     </div>
   )
 }
@@ -37,8 +39,8 @@ const Home: NextPage = () => {
       <Logout />
 
       <main className={styles.main}>
-        <div>Hey you, buy some shit at</div>
-        <h1 className={styles.title}>Swaghaus</h1>
+        {/* <div>buy some junk at</div>
+        <h1 className={styles.title}>Swaghaus</h1> */}
 
         {/* <button className={styles.button} onClick={(_event) => createItem()}>
           Add Item

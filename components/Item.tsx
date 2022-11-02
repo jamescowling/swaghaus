@@ -11,7 +11,7 @@ export function Item({ item }: { item: Document<'items'> }) {
 
   return (
     <div className={styles.item}>
-      <img className={styles.itemImage} src="hovercraft.jpeg" />
+      <img className={styles.itemImage} src={item.image} />
       <div className={styles.itemText}>
         <div className={styles.itemName}>{item.name}</div>
         <div className={styles.itemDesc}>{item.description}</div>

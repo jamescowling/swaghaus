@@ -17,7 +17,7 @@ export function CartItem({
 
   return (
     <div className={styles.cartItem}>
-      <img className={styles.cartItemImage} src="hovercraft.jpeg" />
+      <img className={styles.cartItemImage} src={item.image} />
       <div className={styles.cartItemText}>
         <div className={styles.cartItemName}>{item.name}</div>
         <div>{cartItem.count} in cart</div>
