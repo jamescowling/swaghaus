@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 import { useMutation } from '../convex/_generated/react'
 import { Document } from '../convex/_generated/dataModel'
 
-export function CartItemView({
+export function CartItem({
   cartItem,
   item,
 }: {

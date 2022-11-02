@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 import { useMutation } from '../convex/_generated/react'
 import { Document } from '../convex/_generated/dataModel'
 
-export function ItemView({ item }: { item: Document<'items'> }) {
+export function Item({ item }: { item: Document<'items'> }) {
   const addCart = useMutation('addCart')
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
