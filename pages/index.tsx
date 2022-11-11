@@ -2,14 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useMutation } from '../convex/_generated/react'
 import { Items } from '../components/Items'
 import { Cart } from '../components/Cart'
 import { Logout } from '../components/Logout'
 
 const Home: NextPage = () => {
-  const createItem = useMutation('createItem')
-
   return (
     <div className={styles.container}>
       <Head>
@@ -24,7 +21,6 @@ const Home: NextPage = () => {
         <div className={styles.parent}>
           <div className={styles.left}>
             <Items />
-            {/* <button onClick={() => createItem()}>Add Item</button> */}
           </div>
           <div className={styles.right}>
             <Cart />

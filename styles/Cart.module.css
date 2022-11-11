@@ -1,7 +1,6 @@
 .cartHead {
   background-color: #bbbbbb;
   display: flex;
-  flex-direction: row;
   width: 100%;
   border-bottom: 1px black solid;
 }

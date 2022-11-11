@@ -11,7 +11,6 @@
 
 import type { ApiFromModules } from "convex/browser";
 import type * as addCart from "../addCart";
-import type * as createItem from "../createItem";
 import type * as getCart from "../getCart";
 import type * as getItems from "../getItems";
 import type * as removeCart from "../removeCart";
@@ -27,7 +26,6 @@ import type * as removeCart from "../removeCart";
  */
 export type API = ApiFromModules<{
   addCart: typeof addCart;
-  createItem: typeof createItem;
   getCart: typeof getCart;
   getItems: typeof getItems;
   removeCart: typeof removeCart;
