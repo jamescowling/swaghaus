@@ -2,6 +2,8 @@ import { Id } from './_generated/dataModel'
 import { mutation } from './_generated/server'
 
 export default mutation(async ({ db, auth }, cartItemId: Id<'carts'>) => {
+  console.log(`Removing cartItem ${cartItemId} from cart`)
+
   const identity = await auth.getUserIdentity()
   if (!identity) {
     throw new Error('getCart called without user auth')

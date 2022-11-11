@@ -3,27 +3,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useMutation } from '../convex/_generated/react'
-import { useAuth0 } from '@auth0/auth0-react'
 import { Items } from '../components/Items'
 import { Cart } from '../components/Cart'
-
-function Logout() {
-  const { logout, user } = useAuth0()
-  return (
-    <div>
-      <img src={user?.picture} style={{
-          width: "40px",
-          borderRadius: "20%",
-          margin: "10px",
-        }}/>
-        <div style={{marginBottom: "40px"}}>
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        Log out {user!.name}
-      </button>
-      </div>
-    </div>
-  )
-}
+import { Logout } from '../components/Logout'
 
 const Home: NextPage = () => {
   const createItem = useMutation('createItem')
@@ -39,15 +21,10 @@ const Home: NextPage = () => {
       <Logout />
 
       <main className={styles.main}>
-        {/* <div>buy some junk at</div>
-        <h1 className={styles.title}>Swaghaus</h1> */}
-
-        {/* <button className={styles.button} onClick={(_event) => createItem()}>
-          Add Item
-        </button> */}
         <div className={styles.parent}>
           <div className={styles.left}>
             <Items />
+            {/* <button onClick={() => createItem()}>Add Item</button> */}
           </div>
           <div className={styles.right}>
             <Cart />

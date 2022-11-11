@@ -1,0 +1,22 @@
+.cartHead {
+  background-color: #bbbbbb;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px black solid;
+}
+
+.h2 {
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  margin: 10px;
+  border: 1px solid black;
+}

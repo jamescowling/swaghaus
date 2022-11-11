@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/CartItem.module.css'
 import { useMutation } from '../convex/_generated/react'
 import { Document } from '../convex/_generated/dataModel'
 

@@ -1,0 +1,56 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.itemImage {
+  width: 150px;
+  object-fit: contain;
+}
+
+.itemText {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.itemName {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.itemDesc {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.itemPrice {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.itemButton {
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 0.5rem;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  text-align: center;
+  width: 120px;
+}
+
+.itemButton:hover,
+.itemButton:focus,
+.itemButton:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}

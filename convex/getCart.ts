@@ -6,6 +6,8 @@ export default query(
     db,
     auth,
   }): Promise<{ cartItem: Document<'carts'>; item: Document<'items'> }[]> => {
+    console.log('Fetching cart')
+
     const identity = await auth.getUserIdentity()
     if (!identity) {
       throw new Error('getCart called without user auth')
@@ -16,7 +18,7 @@ export default query(
       .query('carts')
       .filter((q) => q.eq(q.field('userToken'), userToken))
       .collect()
-    const cartsAndItems = await Promise.all(
+    const cartItems = await Promise.all(
       cart.map(async (cartItem) => {
         const item = await db.get(cartItem.itemId)
         if (item === null) {
@@ -28,6 +30,6 @@ export default query(
         }
       })
     )
-    return cartsAndItems
+    return cartItems
   }
 )

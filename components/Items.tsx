@@ -3,6 +3,7 @@ import { Item as Item } from './Item'
 
 export function Items() {
   const items = useQuery('getItems') ?? []
+
   return (
     <div>
       {items.map((item) => (

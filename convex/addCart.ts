@@ -1,9 +1,10 @@
 import { Id } from './_generated/dataModel'
 import { mutation } from './_generated/server'
 
-// Moves the item to the given shopping cart and deducts one from the quantity
-// in stock.
+// Moves item to the given shopping cart and decrements quantity in stock.
 export default mutation(async ({ db, auth }, itemId: Id<'items'>) => {
+  console.log(`Adding item ${itemId} to cart`)
+
   const identity = await auth.getUserIdentity()
   if (!identity) {
     throw new Error('getCart called without user auth')
