@@ -1,48 +1,48 @@
-import { v } from 'convex/values'
-import { Id } from './_generated/dataModel'
-import { mutation } from './_generated/server'
+import { v } from "convex/values";
+import { Id } from "./_generated/dataModel";
+import { mutation } from "./_generated/server";
 
 // Moves item to the given shopping cart and decrements quantity in stock.
 export default mutation(
-  async ({ db, auth }, { itemId }: { itemId: Id<'items'> }) => {
-    console.log(`Adding item ${itemId} to cart`)
+  async ({ db, auth }, { itemId }: { itemId: Id<"items"> }) => {
+    console.log(`Adding item ${itemId} to cart`);
 
-    const identity = await auth.getUserIdentity()
+    const identity = await auth.getUserIdentity();
     if (!identity) {
-      throw new Error('getCart called without user auth')
+      throw new Error("getCart called without user auth");
     }
-    const userToken = identity.tokenIdentifier
+    const userToken = identity.tokenIdentifier;
 
     // Check the item exists and has sufficient stock.
-    const item = await db.get(itemId)
+    const item = await db.get(itemId);
     if (item === null) {
-      throw new Error(`No item with id ${itemId}`)
+      throw new Error(`No item with id ${itemId}`);
     }
     if (item.remaining <= 0) {
-      throw new Error(`Insufficient stock of ${item.name}`)
+      throw new Error(`Insufficient stock of ${item.name}`);
     }
 
     // Add item to cart or increment count in cart.
     const cartItem = await db
-      .query('carts')
+      .query("carts")
       .filter((q) =>
         q.and(
-          q.eq(q.field('userToken'), userToken),
-          q.eq(q.field('itemId'), itemId)
+          q.eq(q.field("userToken"), userToken),
+          q.eq(q.field("itemId"), itemId)
         )
       )
-      .first()
+      .first();
     if (cartItem === null) {
-      db.insert('carts', {
+      db.insert("carts", {
         userToken,
         itemId: itemId,
         count: 1,
-      })
+      });
     } else {
-      db.patch(cartItem._id, { count: cartItem.count + 1 })
+      db.patch(cartItem._id, { count: cartItem.count + 1 });
     }
 
     // Deduct stock for item.
-    db.patch(itemId, { remaining: item.remaining - 1 })
+    db.patch(itemId, { remaining: item.remaining - 1 });
   }
-)
+);

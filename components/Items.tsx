@@ -1,8 +1,8 @@
-import { useQuery } from '../convex/_generated/react'
-import { Item } from './Item'
+import { useQuery } from "../convex/_generated/react";
+import { Item } from "./Item";
 
 export function Items() {
-  const items = useQuery('getItems') ?? []
+  const items = useQuery("getItems") ?? [];
 
   return (
     <div>
@@ -10,5 +10,5 @@ export function Items() {
         <Item item={item} key={item._id.toString()} />
       ))}
     </div>
-  )
+  );
 }

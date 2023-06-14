@@ -1,5 +1,5 @@
-import { defineSchema, defineTable } from 'convex/schema'
-import { v } from 'convex/values'
+import { defineSchema, defineTable } from "convex/schema";
+import { v } from "convex/values";
 
 export default defineSchema({
   items: defineTable({
@@ -11,7 +11,7 @@ export default defineSchema({
   }),
   carts: defineTable({
     userToken: v.string(),
-    itemId: v.id('items'),
+    itemId: v.id("items"),
     count: v.number(),
   }),
-})
+});

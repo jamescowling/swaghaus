@@ -1,13 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
 
-import { Authenticated, ConvexReactClient, Unauthenticated } from 'convex/react'
-import { ConvexProviderWithAuth0 } from 'convex/react-auth0'
-import { Auth0Provider } from '@auth0/auth0-react'
-import React from 'react'
-import Login from '../components/Login'
+import {
+  Authenticated,
+  ConvexReactClient,
+  Unauthenticated,
+} from "convex/react";
+import { ConvexProviderWithAuth0 } from "convex/react-auth0";
+import { Auth0Provider } from "@auth0/auth0-react";
+import React from "react";
+import Login from "../components/Login";
 
-const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
+const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID!}
         authorizationParams={{
           redirect_uri:
-            typeof window === 'undefined' ? undefined : window.location.origin,
+            typeof window === "undefined" ? undefined : window.location.origin,
         }}
         useRefreshTokens={true}
         cacheLocation="localstorage"
@@ -32,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </ConvexProviderWithAuth0>
       </Auth0Provider>
     </React.StrictMode>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

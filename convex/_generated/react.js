@@ -16,7 +16,7 @@ import {
   usePaginatedQueryGeneric,
   useQueriesGeneric,
   useQueryGeneric,
-} from 'convex/react'
+} from "convex/react";
 
 /**
  * Load a reactive query within a React component.
@@ -32,7 +32,7 @@ import {
  * @returns the result of the query. If the query is loading returns
  * `undefined`.
  */
-export const useQuery = useQueryGeneric
+export const useQuery = useQueryGeneric;
 
 /**
  * Construct a new {@link ReactMutation}.
@@ -50,7 +50,7 @@ export const useQuery = useQueryGeneric
  * @param name - The name of the mutation.
  * @returns The {@link ReactMutation} object with that name.
  */
-export const useMutation = useMutationGeneric
+export const useMutation = useMutationGeneric;
 
 /**
  * Construct a new {@link ReactAction}.
@@ -67,7 +67,7 @@ export const useMutation = useMutationGeneric
  * @param name - The name of the function.
  * @returns The {@link ReactAction} object with that name.
  */
-export const useAction = useActionGeneric
+export const useAction = useActionGeneric;
 
 /**
  * Get the {@link ConvexReactClient} within a React component.
@@ -76,7 +76,7 @@ export const useAction = useActionGeneric
  *
  * @returns The active {@link ConvexReactClient} object, or `undefined`.
  */
-export const useConvex = useConvexGeneric
+export const useConvex = useConvexGeneric;
 
 /**
  * Load data reactively from a paginated query to a create a growing list.
@@ -117,7 +117,7 @@ export const useConvex = useConvexGeneric
  * @returns A {@link UsePaginatedQueryResult} that includes the currently loaded
  * items, the status of the pagination, and a `loadMore` function.
  */
-export const usePaginatedQuery = usePaginatedQueryGeneric
+export const usePaginatedQuery = usePaginatedQueryGeneric;
 
 /**
  * Load a variable number of reactive Convex queries.
@@ -167,4 +167,4 @@ export const usePaginatedQuery = usePaginatedQueryGeneric
  * of the query function, `undefined` if it's still loading, or an `Error` if
  * it threw an exception.
  */
-export const useQueries = useQueriesGeneric
+export const useQueries = useQueriesGeneric;

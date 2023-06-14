@@ -1,8 +1,8 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import styles from '../styles/Logout.module.css'
+import { useAuth0 } from "@auth0/auth0-react";
+import styles from "../styles/Logout.module.css";
 
 export function Logout() {
-  const { logout, user } = useAuth0()
+  const { logout, user } = useAuth0();
 
   return (
     <div className={styles.box}>
@@ -16,5 +16,5 @@ export function Logout() {
         Log out {user!.name}
       </button>
     </div>
-  )
+  );
 }

@@ -1,35 +1,35 @@
-import { query } from './_generated/server'
-import { Doc } from '../convex/_generated/dataModel'
+import { query } from "./_generated/server";
+import { Doc } from "../convex/_generated/dataModel";
 
 export default query(
   async ({
     db,
     auth,
-  }): Promise<{ cartItem: Doc<'carts'>; item: Doc<'items'> }[]> => {
-    console.log('Fetching cart')
+  }): Promise<{ cartItem: Doc<"carts">; item: Doc<"items"> }[]> => {
+    console.log("Fetching cart");
 
-    const identity = await auth.getUserIdentity()
+    const identity = await auth.getUserIdentity();
     if (!identity) {
-      throw new Error('getCart called without user auth')
+      throw new Error("getCart called without user auth");
     }
-    const userToken = identity.tokenIdentifier
+    const userToken = identity.tokenIdentifier;
 
     const cart = await db
-      .query('carts')
-      .filter((q) => q.eq(q.field('userToken'), userToken))
-      .collect()
+      .query("carts")
+      .filter((q) => q.eq(q.field("userToken"), userToken))
+      .collect();
     const cartItems = await Promise.all(
       cart.map(async (cartItem) => {
-        const item = await db.get(cartItem.itemId)
+        const item = await db.get(cartItem.itemId);
         if (item === null) {
-          throw new Error(`No item with id ${cartItem.itemId}`)
+          throw new Error(`No item with id ${cartItem.itemId}`);
         }
         return {
           cartItem,
           item,
-        }
+        };
       })
-    )
-    return cartItems
+    );
+    return cartItems;
   }
-)
+);

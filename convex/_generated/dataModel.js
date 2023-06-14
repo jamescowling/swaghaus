@@ -9,7 +9,7 @@
  * @module
  */
 
-import { GenericId } from 'convex/values'
+import { GenericId } from "convex/values";
 
 /**
  * An identifier for a document in Convex.
@@ -23,4 +23,4 @@ import { GenericId } from 'convex/values'
  * Using `===` will not work because two different instances of `Id` can refer
  * to the same document.
  */
-export const Id = GenericId
+export const Id = GenericId;

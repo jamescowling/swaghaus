@@ -1,13 +1,13 @@
-import styles from '../styles/Item.module.css'
-import { useMutation } from '../convex/_generated/react'
-import { Doc } from '../convex/_generated/dataModel'
+import styles from "../styles/Item.module.css";
+import { useMutation } from "../convex/_generated/react";
+import { Doc } from "../convex/_generated/dataModel";
 
-export function Item({ item }: { item: Doc<'items'> }) {
-  const addCart = useMutation('addCart')
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  })
+export function Item({ item }: { item: Doc<"items"> }) {
+  const addCart = useMutation("addCart");
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   return (
     <div className={styles.item}>
@@ -25,5 +25,5 @@ export function Item({ item }: { item: Doc<'items'> }) {
         <span>({item.remaining} remaining)</span>
       </div>
     </div>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import { useQuery } from '../convex/_generated/react'
-import { CartItem as CartItem } from './CartItem'
-import { useAuth0 } from '@auth0/auth0-react'
-import styles from '../styles/Cart.module.css'
+import { useQuery } from "../convex/_generated/react";
+import { CartItem as CartItem } from "./CartItem";
+import { useAuth0 } from "@auth0/auth0-react";
+import styles from "../styles/Cart.module.css";
 
 export function Cart() {
-  const { user } = useAuth0()
-  const cartItems = useQuery('getCart') ?? []
+  const { user } = useAuth0();
+  const cartItems = useQuery("getCart") ?? [];
 
   return (
     <div>
@@ -23,5 +23,5 @@ export function Cart() {
         ))}
       </div>
     </div>
-  )
+  );
 }

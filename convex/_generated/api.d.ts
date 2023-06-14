@@ -9,11 +9,11 @@
  * @module
  */
 
-import type { ApiFromModules } from 'convex/api'
-import type * as addCart from '../addCart'
-import type * as getCart from '../getCart'
-import type * as getItems from '../getItems'
-import type * as removeCart from '../removeCart'
+import type { ApiFromModules } from "convex/api";
+import type * as addCart from "../addCart";
+import type * as getCart from "../getCart";
+import type * as getItems from "../getItems";
+import type * as removeCart from "../removeCart";
 
 /**
  * A type describing your app's public Convex API.
@@ -25,8 +25,8 @@ import type * as removeCart from '../removeCart'
  * `ConvexReactClient` to create app-specific types.
  */
 export type API = ApiFromModules<{
-  addCart: typeof addCart
-  getCart: typeof getCart
-  getItems: typeof getItems
-  removeCart: typeof removeCart
-}>
+  addCart: typeof addCart;
+  getCart: typeof getCart;
+  getItems: typeof getItems;
+  removeCart: typeof removeCart;
+}>;

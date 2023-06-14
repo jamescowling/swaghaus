@@ -1,19 +1,19 @@
-import styles from '../styles/CartItem.module.css'
-import { useMutation } from '../convex/_generated/react'
-import { Doc } from '../convex/_generated/dataModel'
+import styles from "../styles/CartItem.module.css";
+import { useMutation } from "../convex/_generated/react";
+import { Doc } from "../convex/_generated/dataModel";
 
 export function CartItem({
   cartItem,
   item,
 }: {
-  cartItem: Doc<'carts'>
-  item: Doc<'items'>
+  cartItem: Doc<"carts">;
+  item: Doc<"items">;
 }) {
-  const removeCart = useMutation('removeCart')
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  })
+  const removeCart = useMutation("removeCart");
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   return (
     <div className={styles.cartItem}>
@@ -22,7 +22,7 @@ export function CartItem({
         <div className={styles.cartItemName}>{item.name}</div>
         <div>{cartItem.count} in cart</div>
         <div>
-          Total:{' '}
+          Total:{" "}
           <span className={styles.cartItemPrice}>
             {formatter.format(cartItem.count * item.price)}
           </span>
@@ -35,5 +35,5 @@ export function CartItem({
         </button>
       </div>
     </div>
-  )
+  );
 }

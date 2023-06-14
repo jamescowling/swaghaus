@@ -9,7 +9,7 @@
  * @module
  */
 
-import type { OptimisticLocalStore as GenericOptimisticLocalStore } from 'convex/browser'
+import type { OptimisticLocalStore as GenericOptimisticLocalStore } from "convex/browser";
 import type {
   UseActionForAPI,
   UseConvexForAPI,
@@ -24,9 +24,9 @@ import type {
   ConvexReactClient,
   PaginatedQueryFunction,
   UsePaginatedQueryResult,
-} from 'convex/react'
-import { PaginationResult, PaginationOptions } from 'convex/server'
-import type { API } from './api'
+} from "convex/react";
+import { PaginationResult, PaginationOptions } from "convex/server";
+import type { API } from "./api";
 
 /**
  * Load a reactive query within a React component.
@@ -41,7 +41,7 @@ import type { API } from './api'
  * @returns the result of the query. If the query is loading returns
  * `undefined`.
  */
-export declare const useQuery: UseQueryForAPI<API>
+export declare const useQuery: UseQueryForAPI<API>;
 
 /**
  * Construct a new {@link ReactMutation}.
@@ -59,7 +59,7 @@ export declare const useQuery: UseQueryForAPI<API>
  * @param name - The name of the mutation.
  * @returns The {@link ReactMutation} object with that name.
  */
-export declare const useMutation: UseMutationForAPI<API>
+export declare const useMutation: UseMutationForAPI<API>;
 
 /**
  * Construct a new {@link ReactAction}.
@@ -76,7 +76,7 @@ export declare const useMutation: UseMutationForAPI<API>
  * @param name - The name of the action.
  * @returns The {@link ReactAction} object with that name.
  */
-export declare const useAction: UseActionForAPI<API>
+export declare const useAction: UseActionForAPI<API>;
 
 /**
  * Get the {@link ConvexReactClient} within a React component.
@@ -85,7 +85,7 @@ export declare const useAction: UseActionForAPI<API>
  *
  * @returns The active {@link ConvexReactClient} object, or `undefined`.
  */
-export declare const useConvex: UseConvexForAPI<API>
+export declare const useConvex: UseConvexForAPI<API>;
 
 /**
  * Load data reactively from a paginated query to a create a growing list.
@@ -126,7 +126,7 @@ export declare const useConvex: UseConvexForAPI<API>
  * @returns A {@link UsePaginatedQueryResult} that includes the currently loaded
  * items, the status of the pagination, and a `loadMore` function.
  */
-export declare const usePaginatedQuery: UsePaginatedQueryForAPI<API>
+export declare const usePaginatedQuery: UsePaginatedQueryForAPI<API>;
 
 /**
  * Load a variable number of reactive Convex queries.
@@ -176,10 +176,10 @@ export declare const usePaginatedQuery: UsePaginatedQueryForAPI<API>
  * of the query function, `undefined` if it's still loading, or an `Error` if
  * it threw an exception.
  */
-export declare const useQueries: UseQueriesForAPI<API>
+export declare const useQueries: UseQueriesForAPI<API>;
 
 /**
  * A view of the query results currently in the Convex client for use within
  * optimistic updates.
  */
-export type OptimisticLocalStore = GenericOptimisticLocalStore<API>
+export type OptimisticLocalStore = GenericOptimisticLocalStore<API>;

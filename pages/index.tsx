@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { Items } from '../components/Items'
-import { Cart } from '../components/Cart'
-import { Logout } from '../components/Logout'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import { Items } from "../components/Items";
+import { Cart } from "../components/Cart";
+import { Logout } from "../components/Logout";
 
 const Home: NextPage = () => {
   return (
@@ -34,14 +34,14 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/convex.svg" alt="Convex Logo" width={90} height={18} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

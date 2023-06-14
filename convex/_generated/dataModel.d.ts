@@ -9,15 +9,15 @@
  * @module
  */
 
-import type { DataModelFromSchemaDefinition } from 'convex/schema'
-import type { DocumentByName, TableNamesInDataModel } from 'convex/server'
-import { GenericId, GenericIdConstructor } from 'convex/values'
-import schema from '../schema'
+import type { DataModelFromSchemaDefinition } from "convex/schema";
+import type { DocumentByName, TableNamesInDataModel } from "convex/server";
+import { GenericId, GenericIdConstructor } from "convex/values";
+import schema from "../schema";
 
 /**
  * The names of all of your Convex tables.
  */
-export type TableNames = TableNamesInDataModel<DataModel>
+export type TableNames = TableNamesInDataModel<DataModel>;
 
 /**
  * The type of a document stored in Convex.
@@ -27,7 +27,7 @@ export type TableNames = TableNamesInDataModel<DataModel>
 export type Doc<TableName extends TableNames> = DocumentByName<
   DataModel,
   TableName
->
+>;
 
 /**
  * An identifier for a document in Convex.
@@ -43,7 +43,7 @@ export type Doc<TableName extends TableNames> = DocumentByName<
  *
  * @typeParam TableName - A string literal type of the table name (like "users").
  */
-export type Id<TableName extends TableNames> = GenericId<TableName>
+export type Id<TableName extends TableNames> = GenericId<TableName>;
 
 /**
  * An identifier for a document in Convex.
@@ -57,7 +57,7 @@ export type Id<TableName extends TableNames> = GenericId<TableName>
  * Using `===` will not work because two different instances of `Id` can refer
  * to the same document.
  */
-export declare const Id: GenericIdConstructor<TableNames>
+export declare const Id: GenericIdConstructor<TableNames>;
 
 /**
  * A type describing your Convex data model.
@@ -68,4 +68,4 @@ export declare const Id: GenericIdConstructor<TableNames>
  * This type is used to parameterize methods like `queryGeneric` and
  * `mutationGeneric` to make them type-safe.
  */
-export type DataModel = DataModelFromSchemaDefinition<typeof schema>
+export type DataModel = DataModelFromSchemaDefinition<typeof schema>;
