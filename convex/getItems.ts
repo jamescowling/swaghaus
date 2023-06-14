@@ -1,7 +1,7 @@
 import { query } from './_generated/server'
-import { Document } from '../convex/_generated/dataModel'
+import { Doc } from '../convex/_generated/dataModel'
 
-export default query(async ({ db }): Promise<Document<'items'>[]> => {
+export default query(async ({ db }): Promise<Doc<'items'>[]> => {
   console.log('fetching items')
 
   const items = await db

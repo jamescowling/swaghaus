@@ -9,7 +9,9 @@ export function Logout() {
       <img className={styles.img} src={user!.picture} />
       <button
         className={styles.button}
-        onClick={() => logout({ returnTo: window.location.origin })}
+        onClick={() =>
+          logout({ logoutParams: { returnTo: window.location.origin } })
+        }
       >
         Log out {user!.name}
       </button>

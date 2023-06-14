@@ -1,11 +1,11 @@
 import { query } from './_generated/server'
-import { Document } from '../convex/_generated/dataModel'
+import { Doc } from '../convex/_generated/dataModel'
 
 export default query(
   async ({
     db,
     auth,
-  }): Promise<{ cartItem: Document<'carts'>; item: Document<'items'> }[]> => {
+  }): Promise<{ cartItem: Doc<'carts'>; item: Doc<'items'> }[]> => {
     console.log('Fetching cart')
 
     const identity = await auth.getUserIdentity()
