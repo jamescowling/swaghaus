@@ -25,7 +25,7 @@ export default query({
           cartItem,
           item,
         };
-      })
+      }),
     );
     return cartItems;
   },

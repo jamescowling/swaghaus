@@ -28,8 +28,8 @@ export default mutation({
       .filter((q) =>
         q.and(
           q.eq(q.field("userToken"), userToken),
-          q.eq(q.field("itemId"), itemId)
-        )
+          q.eq(q.field("itemId"), itemId),
+        ),
       )
       .first();
     if (cartItem === null) {

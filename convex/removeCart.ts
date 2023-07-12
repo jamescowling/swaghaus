@@ -18,7 +18,7 @@ export default mutation({
     }
     if (cartItem.userToken != userToken) {
       throw new Error(
-        `Cart item ${cartItemId} has user ${cartItem.userToken} instead of ${userToken}`
+        `Cart item ${cartItemId} has user ${cartItem.userToken} instead of ${userToken}`,
       );
     }
     const item = await db.get(cartItem.itemId);
