@@ -1,9 +1,10 @@
+import { api } from "../convex/_generated/api";
+import { useMutation } from "convex/react";
 import styles from "../styles/Item.module.css";
-import { useMutation } from "../convex/_generated/react";
 import { Doc } from "../convex/_generated/dataModel";
 
 export function Item({ item }: { item: Doc<"items"> }) {
-  const addCart = useMutation("addCart");
+  const addCart = useMutation(api.addCart.default);
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

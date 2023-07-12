@@ -1,11 +1,12 @@
-import { useQuery } from "../convex/_generated/react";
+import { api } from "../convex/_generated/api";
+import { useQuery } from "convex/react";
 import { CartItem as CartItem } from "./CartItem";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../styles/Cart.module.css";
 
 export function Cart() {
   const { user } = useAuth0();
-  const cartItems = useQuery("getCart") ?? [];
+  const cartItems = useQuery(api.getCart.default) ?? [];
 
   return (
     <div>

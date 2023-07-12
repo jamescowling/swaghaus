@@ -1,8 +1,9 @@
-import { useQuery } from "../convex/_generated/react";
+import { api } from "../convex/_generated/api";
+import { useQuery } from "convex/react";
 import { Item } from "./Item";
 
 export function Items() {
-  const items = useQuery("getItems") ?? [];
+  const items = useQuery(api.getItems.default) ?? [];
 
   return (
     <div>
