@@ -5,13 +5,13 @@ export default defineSchema({
   items: defineTable({
     name: v.string(),
     description: v.string(),
-    price: v.number(),
-    remaining: v.number(),
+    price: v.float64(),
+    remaining: v.float64(),
     image: v.string(),
   }),
   carts: defineTable({
     userToken: v.string(),
     itemId: v.id("items"),
-    count: v.number(),
+    count: v.float64(),
   }),
 });

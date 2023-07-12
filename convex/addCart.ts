@@ -1,9 +1,10 @@
-import { Id } from "./_generated/dataModel";
+import { v } from "convex/values";
 import { mutation } from "./_generated/server";
 
 // Moves item to the given shopping cart and decrements quantity in stock.
-export default mutation(
-  async ({ db, auth }, { itemId }: { itemId: Id<"items"> }) => {
+export default mutation({
+  args: { itemId: v.id("items") },
+  handler: async ({ db, auth }, { itemId }) => {
     console.log(`Adding item ${itemId} to cart`);
 
     const identity = await auth.getUserIdentity();
@@ -32,16 +33,16 @@ export default mutation(
       )
       .first();
     if (cartItem === null) {
-      db.insert("carts", {
+      await db.insert("carts", {
         userToken,
         itemId: itemId,
         count: 1,
       });
     } else {
-      db.patch(cartItem._id, { count: cartItem.count + 1 });
+      await db.patch(cartItem._id, { count: cartItem.count + 1 });
     }
 
     // Deduct stock for item.
-    db.patch(itemId, { remaining: item.remaining - 1 });
-  }
-);
+    await db.patch(itemId, { remaining: item.remaining - 1 });
+  },
+});

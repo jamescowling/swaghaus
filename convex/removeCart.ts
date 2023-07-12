@@ -1,8 +1,9 @@
-import { Id } from "./_generated/dataModel";
+import { v } from "convex/values";
 import { mutation } from "./_generated/server";
 
-export default mutation(
-  async ({ db, auth }, { cartItemId }: { cartItemId: Id<"carts"> }) => {
+export default mutation({
+  args: { cartItemId: v.id("carts") },
+  handler: async ({ db, auth }, { cartItemId }) => {
     console.log(`Removing cartItem ${cartItemId} from cart`);
 
     const identity = await auth.getUserIdentity();
@@ -27,12 +28,12 @@ export default mutation(
 
     // Remove item from cart or deduct quantity.
     if (cartItem.count > 1) {
-      db.patch(cartItem._id, { count: cartItem.count - 1 });
+      await db.patch(cartItem._id, { count: cartItem.count - 1 });
     } else {
-      db.delete(cartItem._id);
+      await db.delete(cartItem._id);
     }
 
     // Increment stock for item.
-    db.patch(item._id, { remaining: item.remaining + 1 });
-  }
-);
+    await db.patch(item._id, { remaining: item.remaining + 1 });
+  },
+});
