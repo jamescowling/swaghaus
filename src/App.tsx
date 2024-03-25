@@ -1,20 +1,11 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Items } from "../components/Items";
-import { Cart } from "../components/Cart";
-import { Logout } from "../components/Logout";
+import { Items } from "./Items";
+import { Cart } from "./Cart";
+import { Logout } from "./Logout";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Swaghaus</title>
-        <meta name="description" content="Convex shopping cart demo app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Logout />
 
       <main className={styles.main}>
@@ -36,12 +27,10 @@ const Home: NextPage = () => {
         >
           Powered by{" "}
           <span className={styles.logo}>
-            <Image src="/convex.svg" alt="Convex Logo" width={90} height={18} />
+            <img src="/convex.svg" alt="Convex Logo" width={90} height={18} />
           </span>
         </a>
       </footer>
     </div>
   );
-};
-
-export default Home;
+}

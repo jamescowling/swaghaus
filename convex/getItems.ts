@@ -7,7 +7,7 @@ export default query({
 
     const items = await db
       .query("items")
-      .filter((q) => q.gt(q.field("remaining"), 0))
+      .withIndex("by_remaining", (q) => q.gt("remaining", 0))
       .collect();
     return items;
   },
