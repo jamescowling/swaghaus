@@ -25,7 +25,7 @@ export default mutation({
     // Add item to cart or increment count in cart.
     const cartItem = await db
       .query("carts")
-      .withIndex("by_user_item", (q) =>
+      .withIndex("user_item", (q) =>
         q.eq("userToken", userToken).eq("itemId", itemId)
       )
       .first();

@@ -8,10 +8,10 @@ export default defineSchema({
     price: v.float64(),
     remaining: v.float64(),
     image: v.string(),
-  }).index("by_remaining", ["remaining"]),
+  }).index("remaining", ["remaining"]),
   carts: defineTable({
     userToken: v.string(),
     itemId: v.id("items"),
     count: v.float64(),
-  }).index("by_user_item", ["userToken", "itemId"]),
+  }).index("user_item", ["userToken", "itemId"]),
 });
