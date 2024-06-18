@@ -8,7 +8,8 @@ import { query, mutation } from "./_generated/server";
 // Returns all items with remaining stock.
 export const list = query({
   handler: async ({ db }) => {
-    // No auth is required here but also this makes the function very cacheable.
+    // No auth is required here which also this makes the function very
+    // cacheable. This caching is automatic and managed by Convex.
     console.log("fetching items");
 
     // Fetch all items with remaining stock.

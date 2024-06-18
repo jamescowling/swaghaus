@@ -5,6 +5,7 @@ export function Logout() {
 
   return (
     <button
+      className="btn btn-blue"
       onClick={() =>
         logout({ logoutParams: { returnTo: window.location.origin } })
       }

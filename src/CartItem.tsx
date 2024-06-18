@@ -1,6 +1,5 @@
 import { api } from "../convex/_generated/api";
 import { useMutation } from "convex/react";
-import styles from "../styles/CartItem.module.css";
 import { Doc } from "../convex/_generated/dataModel";
 
 export function CartItem({
@@ -17,19 +16,16 @@ export function CartItem({
   });
 
   return (
-    <div className={styles.cartItem}>
-      <img className={styles.cartItemImage} src={item.image} />
-      <div className={styles.cartItemText}>
-        <div className={styles.cartItemName}>{item.name}</div>
+    <div>
+      <img className="w-20" src={item.image} />
+      <div>
+        <div>{item.name}</div>
         <div>{cartItem.count} in cart</div>
         <div>
-          Total:{" "}
-          <span className={styles.cartItemPrice}>
-            {formatter.format(cartItem.count * item.price)}
-          </span>
+          Total: <span>{formatter.format(cartItem.count * item.price)}</span>
         </div>
         <button
-          className={styles.cartItemButton}
+          className="btn btn-blue"
           onClick={() => removeCart({ cartItemId: cartItem._id })}
         >
           Remove
