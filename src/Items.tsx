@@ -3,7 +3,7 @@ import { useQuery } from "convex/react";
 import { Item } from "./Item";
 
 export function Items() {
-  const items = useQuery(api.getItems.default) ?? [];
+  const items = useQuery(api.items.list) ?? [];
 
   return (
     <div>

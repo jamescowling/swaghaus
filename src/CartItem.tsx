@@ -10,7 +10,7 @@ export function CartItem({
   cartItem: Doc<"carts">;
   item: Doc<"items">;
 }) {
-  const removeCart = useMutation(api.removeCart.default);
+  const removeCart = useMutation(api.cart.remove);
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

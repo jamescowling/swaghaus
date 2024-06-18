@@ -7,7 +7,7 @@ import { Logout } from "./Logout";
 
 export function Cart() {
   const { user } = useAuth0();
-  const cartItems = useQuery(api.getCart.default) ?? [];
+  const cartItems = useQuery(api.cart.list) ?? [];
 
   return (
     <div>

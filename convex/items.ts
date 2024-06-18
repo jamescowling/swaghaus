@@ -1,7 +1,22 @@
-import { mutation } from "./_generated/server";
+import { query, mutation } from "./_generated/server";
+
+// Returns all items with remaining stock.
+export const list = query({
+  handler: async ({ db }) => {
+    // No auth is required here but also this makes the function very cacheable.
+    console.log("fetching items");
+
+    // Fetch all items with remaining stock.
+    const items = await db
+      .query("items")
+      .withIndex("remaining", (q) => q.gt("remaining", 0))
+      .collect();
+    return items;
+  },
+});
 
 // Resets the application state, i.e., removes all items from all carts.
-export default mutation({
+export const reset = mutation({
   handler: async ({ db, auth }) => {
     // Access control check.
     const identity = await auth.getUserIdentity();
