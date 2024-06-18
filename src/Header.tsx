@@ -7,7 +7,7 @@ export function Header() {
   return (
     <div className="flex flex-col gap-8 p-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-4xl font-bold mt-1">🏠 Swaghaus</h1>
+        <h1 className="text-4xl font-bold">🏠 Swaghaus</h1>
         <div className="flex gap-2">
           <a href="https://github.com/JamesCowling/swaghaus">
             <button className="btn btn-blue gap-2 flex flex-row">
@@ -42,8 +42,12 @@ export function Header() {
           cached, and real-time.
         </p>
         <p>
-          Take a look at how simple the <a href="">items.list query</a> and{" "}
-          <a href="https://github.com/JamesCowling/swaghaus/blob/398153635526f13c213cdb8768b7d9bdd2f8984e/src/Items.tsx#L5">
+          Take a look at how simple the{" "}
+          <a href="https://github.com/JamesCowling/swaghaus/blob/26e9a14fc1adb4afd46c792686d5bfeab4866d67/convex/items.ts#L9">
+            items.list query
+          </a>{" "}
+          and{" "}
+          <a href="https://github.com/JamesCowling/swaghaus/blob/26e9a14fc1adb4afd46c792686d5bfeab4866d67/src/Items.tsx#L5">
             Items component
           </a>{" "}
           are when built on Convex, or check out{" "}
