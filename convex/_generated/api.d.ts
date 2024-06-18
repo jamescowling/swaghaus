@@ -18,6 +18,7 @@ import type * as addCart from "../addCart.js";
 import type * as getCart from "../getCart.js";
 import type * as getItems from "../getItems.js";
 import type * as removeCart from "../removeCart.js";
+import type * as reset from "../reset.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   getCart: typeof getCart;
   getItems: typeof getItems;
   removeCart: typeof removeCart;
+  reset: typeof reset;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

@@ -2,6 +2,7 @@ import styles from "../styles/Home.module.css";
 import { Items } from "./Items";
 import { Cart } from "./Cart";
 import { Logout } from "./Logout";
+import { ResetButton } from "./ResetButton";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             <Cart />
           </div>
         </div>
+        <ResetButton />
       </main>
 
       <footer className={styles.footer}>
