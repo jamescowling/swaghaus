@@ -1,3 +1,8 @@
+// Server-side logic for managing a shopping cart.
+//
+// The functions in this file run on the Convex database and execute as
+// transactions with ACID guarantees.
+
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
@@ -14,11 +19,6 @@ export const list = query({
 
     // Fetch all item ids from the user cart and then perform an
     // application-level join to get the details for each item.
-    //
-    // user_item is a composite index on both the user and each item id but
-    // we're just using the user here. Given the small size of the app none of
-    // these indexes are strictly necessary but it's usually best to use an
-    // index over a `filter` operation on tables that could scale up.
     const cart = await db
       .query("carts")
       .withIndex("user_item", (q) => q.eq("userToken", userToken))

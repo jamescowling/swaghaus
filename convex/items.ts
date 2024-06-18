@@ -1,3 +1,8 @@
+// Server-side logic for managing items in the store.
+//
+// The functions in this file run on the Convex database and execute as
+// transactions with ACID guarantees.
+
 import { query, mutation } from "./_generated/server";
 
 // Returns all items with remaining stock.
@@ -16,6 +21,10 @@ export const list = query({
 });
 
 // Resets the application state, i.e., removes all items from all carts.
+//
+// This function is very simple and just updates all carts at once. In a much
+// larger application you might want to reset state a user or batch or users at
+// a time
 export const reset = mutation({
   handler: async ({ db, auth }) => {
     // Access control check.
