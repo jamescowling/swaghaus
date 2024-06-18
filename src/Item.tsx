@@ -1,9 +1,11 @@
 import { api } from "../convex/_generated/api";
-import { useMutation } from "convex/react";
+import { useConvexAuth, useMutation } from "convex/react";
 import styles from "../styles/Item.module.css";
 import { Doc } from "../convex/_generated/dataModel";
 
 export function Item({ item }: { item: Doc<"items"> }) {
+  const { isAuthenticated } = useConvexAuth();
+
   const addCart = useMutation(api.cart.add);
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -20,6 +22,7 @@ export function Item({ item }: { item: Doc<"items"> }) {
         <button
           className={styles.itemButton}
           onClick={() => addCart({ itemId: item._id })}
+          disabled={!isAuthenticated}
         >
           Add to Cart
         </button>

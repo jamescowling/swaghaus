@@ -48,10 +48,3 @@
   text-align: center;
   width: 120px;
 }
-
-.itemButton:hover,
-.itemButton:focus,
-.itemButton:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
