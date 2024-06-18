@@ -5,13 +5,13 @@ import { mutation } from "./_generated/server";
 export default mutation({
   args: { itemId: v.id("items") },
   handler: async ({ db, auth }, { itemId }) => {
-    console.log(`Adding item ${itemId} to cart`);
-
+    // Access control check.
     const identity = await auth.getUserIdentity();
     if (!identity) {
-      throw new Error("getCart called without user auth");
+      throw new Error("addCart called without user auth");
     }
     const userToken = identity.tokenIdentifier;
+    console.log(`${identity.email} adding item ${itemId} to cart`);
 
     // Check the item exists and has sufficient stock.
     const item = await db.get(itemId);

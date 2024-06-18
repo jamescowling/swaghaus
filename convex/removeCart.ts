@@ -1,24 +1,26 @@
 import { v } from "convex/values";
 import { mutation } from "./_generated/server";
 
+// Removes a single item from the cart.
 export default mutation({
   args: { cartItemId: v.id("carts") },
   handler: async ({ db, auth }, { cartItemId }) => {
-    console.log(`Removing cartItem ${cartItemId} from cart`);
-
+    // Access control check.
     const identity = await auth.getUserIdentity();
     if (!identity) {
-      throw new Error("getCart called without user auth");
+      throw new Error("removeCart called without user auth");
     }
     const userToken = identity.tokenIdentifier;
+    console.log(`${identity.email} removing cartItem ${cartItemId} from cart`);
 
+    // Check the cart item exists and belongs to the user.
     const cartItem = await db.get(cartItemId);
     if (cartItem === null) {
       throw new Error(`No cart item with id ${cartItemId}`);
     }
     if (cartItem.userToken != userToken) {
       throw new Error(
-        `Cart item ${cartItemId} has user ${cartItem.userToken} instead of ${userToken}`,
+        `Cart item ${cartItemId} has user ${cartItem.userToken} instead of ${userToken}`
       );
     }
     const item = await db.get(cartItem.itemId);
