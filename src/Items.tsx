@@ -6,7 +6,7 @@ export function Items() {
   const items = useQuery(api.items.list) ?? [];
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {items.map((item) => (
         <Item item={item} key={item._id.toString()} />
       ))}

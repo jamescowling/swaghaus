@@ -1,16 +1,16 @@
 import { Authenticated, Unauthenticated } from "convex/react";
 import { Logout } from "./Logout";
-import LoginButton from "./Login";
+import Login from "./Login";
 import { ResetButton } from "./ResetButton";
 
 export function Header() {
   return (
-    <div className="flex flex-col gap-8 p-8">
+    <div className="flex flex-col gap-8 pb-12">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold">🏠 Swaghaus</h1>
         <div className="flex gap-2">
           <a href="https://github.com/JamesCowling/swaghaus">
-            <button className="btn btn-blue gap-2 flex flex-row">
+            <button className="btn gap-2 flex flex-row">
               <svg fill="currentColor" viewBox="0 0 24 24" className="h-6">
                 <path
                   fillRule="evenodd"
@@ -21,12 +21,12 @@ export function Header() {
               <div>GitHub source</div>
             </button>
           </a>
-          <ResetButton />
           <Authenticated>
+            <ResetButton />
             <Logout />
           </Authenticated>
           <Unauthenticated>
-            <LoginButton />
+            <Login />
           </Unauthenticated>
         </div>
       </div>
