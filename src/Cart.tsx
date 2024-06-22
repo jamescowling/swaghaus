@@ -8,7 +8,7 @@ export function Cart() {
   const cartItems = useQuery(api.cart.list) ?? [];
 
   return (
-    <div className="shadow shadow-black w-full min-h-80">
+    <div className="shadow shadow-black w-full pb-4 sm:min-h-80">
       <div className="text-center text-xl p-4 font-bold">
         {user!.given_name}'s Cart
       </div>

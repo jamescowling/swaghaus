@@ -17,18 +17,18 @@ export function CartItem({
 
   return (
     <div className="flex flex-row gap-4 items-center">
-      <img className="w-32" src={item.image} />
+      <img className="w-20 md:w-32" src={item.image} />
       <div>
-        <div className="text-lg font-bold">{item.name}</div>
-        <div>{cartItem.count} in cart</div>
-        <div>
+        <div className="text-sm md:text-lg font-bold">{item.name}</div>
+        <div className="text-sm md:text-base">{cartItem.count} in cart</div>
+        <div className="text-sm md:text-base">
           Total:{" "}
           <span className="font-bold">
             {formatter.format(cartItem.count * item.price)}
           </span>
         </div>
         <button
-          className="btn"
+          className="btn text-sm md:text-base"
           onClick={() => removeCart({ cartItemId: cartItem._id })}
         >
           Remove

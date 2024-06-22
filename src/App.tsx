@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <div className="container px-8 py-12 max-w-screen-lg">
       <Header />
-      <div className="flex flex-row">
+      <div className="flex flex-col sm:flex-row">
         <div className="basis-3/5">
           <Items />
         </div>
-        <div className="basis-2/5">
+        <div className="basis-2/5 mt-4 sm:mt-0">
           <Authenticated>
             <Cart />
           </Authenticated>

@@ -6,9 +6,9 @@ import { ResetButton } from "./ResetButton";
 export function Header() {
   return (
     <div className="flex flex-col gap-8 pb-12">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-4xl font-bold">🏠 Swaghaus</h1>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-6 sm:mt-0">
           <a href="https://github.com/JamesCowling/swaghaus">
             <button className="btn gap-2 flex flex-row">
               <svg fill="currentColor" viewBox="0 0 24 24" className="h-6">
