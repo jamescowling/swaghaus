@@ -63,7 +63,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-stone-500">
+          <p className="text-center text-xs leading-5 text-gray-500">
             MIT Licensed. Do whatevs.
           </p>
         </div>

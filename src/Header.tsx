@@ -5,7 +5,7 @@ import { ResetButton } from "./ResetButton";
 
 export function Header() {
   return (
-    <div className="flex flex-col gap-8 pb-12">
+    <div className="flex flex-col gap-8 pb-10">
       <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-4xl font-bold">🏠 Swaghaus</h1>
         <div className="flex gap-2 mt-6 sm:mt-0">
@@ -18,7 +18,7 @@ export function Header() {
                   clipRule="evenodd"
                 />
               </svg>
-              <div>GitHub source</div>
+              <div>Source code</div>
             </button>
           </a>
           <Authenticated>
@@ -44,11 +44,11 @@ export function Header() {
         <p>
           Take a look at how simple the{" "}
           <a href="https://github.com/JamesCowling/swaghaus/blob/26e9a14fc1adb4afd46c792686d5bfeab4866d67/convex/items.ts#L9">
-            items.list query
+            <span className="font-mono">items.list()</span> query
           </a>{" "}
           and{" "}
           <a href="https://github.com/JamesCowling/swaghaus/blob/26e9a14fc1adb4afd46c792686d5bfeab4866d67/src/Items.tsx#L5">
-            Items component
+            <span className="font-mono">Items</span> component
           </a>{" "}
           are when built on Convex, or check out{" "}
           <a href="https://www.youtube.com/watch?v=AdrO6IvHjRQ">

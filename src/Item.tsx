@@ -18,7 +18,7 @@ export function Item({ item }: { item: Doc<"items"> }) {
         <div className="text-lg font-bold">{item.name}</div>
         <div>{item.description}</div>
         <div className="font-bold">{formatter.format(item.price)}</div>
-        <div className="flex flex-col md:flex-row items-center gap-x-4 gap-y-1 my-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-x-4 gap-y-1 my-4">
           <button
             className="btn"
             onClick={() => addCart({ itemId: item._id })}

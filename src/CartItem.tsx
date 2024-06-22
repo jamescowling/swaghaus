@@ -16,7 +16,7 @@ export function CartItem({
   });
 
   return (
-    <div className="flex flex-row gap-4 items-center">
+    <div className="flex flex-row gap-4 mx-4 items-center">
       <img className="w-20 md:w-32" src={item.image} />
       <div>
         <div className="text-sm md:text-lg font-bold">{item.name}</div>
