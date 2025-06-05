@@ -10,7 +10,7 @@ export function Cart() {
   return (
     <div className="shadow shadow-black w-full pb-4 sm:min-h-80">
       <div className="text-center text-xl p-4 font-bold">
-        {user!.given_name}'s Cart
+        {user!.name}'s Cart
       </div>
       <div className="flex flex-col gap-4 p-2">
         {cartItems.map(({ cartItem, item }) => (
