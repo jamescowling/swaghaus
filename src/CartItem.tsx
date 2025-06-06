@@ -1,6 +1,6 @@
 import { api } from "../convex/_generated/api";
 import { useMutation } from "convex/react";
-import { Doc } from "../convex/_generated/dataModel";
+import type { Doc } from "../convex/_generated/dataModel";
 
 export function CartItem({
   cartItem,
