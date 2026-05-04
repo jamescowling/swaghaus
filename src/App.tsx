@@ -6,7 +6,7 @@ import { Authenticated } from "convex/react";
 
 export default function Home() {
   return (
-    <div className="container px-8 py-12 max-w-screen-lg">
+    <div className="container mx-auto px-8 py-12 max-w-screen-lg">
       <Header />
       <div className="flex flex-col sm:flex-row">
         <div className="basis-2/5 mb-6 sm:mb-0 sm:order-2">

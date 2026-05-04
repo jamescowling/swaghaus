@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 a {
   @apply font-bold text-sky-600 hover:text-sky-800;
