@@ -10,8 +10,6 @@ export const list = query({
   handler: async ({ db }) => {
     // No auth is required here which also this makes the function very
     // cacheable. This caching is automatic and managed by Convex.
-    console.log("fetching items");
-
     // Fetch all items with remaining stock.
     const items = await db
       .query("items")
@@ -38,7 +36,7 @@ export const reset = mutation({
     // Fetch items from each cart, perform an application-level join to get the
     // details for each item, and then reset the stock.
     const cartItems = await db.query("carts").collect();
-    Promise.all(
+    await Promise.all(
       cartItems.map(async (cartItem) => {
         const item = await db.get(cartItem.itemId);
         if (item === null) {

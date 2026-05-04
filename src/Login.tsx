@@ -1,9 +1,9 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth } from "@workos-inc/authkit-react";
 
 export default function Login() {
-  const { loginWithRedirect } = useAuth0();
+  const { signIn } = useAuth();
   return (
-    <button className="btn" onClick={() => loginWithRedirect()}>
+    <button className="btn" onClick={signIn}>
       Sign in
     </button>
   );
