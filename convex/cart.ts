@@ -15,7 +15,7 @@ export const list = query({
       throw new Error("cart.list called without user auth");
     }
     const userToken = identity.tokenIdentifier;
-    console.log(`${identity.email} fetching cart items`);
+    console.log(`${identity.name ?? identity.subject} fetching cart items`);
 
     // Fetch all item ids from the user cart and then perform an
     // application-level join to get the details for each item.
@@ -49,7 +49,7 @@ export const add = mutation({
       throw new Error("cart.add called without user auth");
     }
     const userToken = identity.tokenIdentifier;
-    console.log(`${identity.email} adding item ${itemId} to cart`);
+    console.log(`${identity.name ?? identity.subject} adding item ${itemId} to cart`);
 
     // Check the item exists and has sufficient stock.
     const item = await db.get(itemId);
@@ -92,7 +92,7 @@ export const remove = mutation({
       throw new Error("removeCart called without user auth");
     }
     const userToken = identity.tokenIdentifier;
-    console.log(`${identity.email} removing cartItem ${cartItemId} from cart`);
+    console.log(`${identity.name ?? identity.subject} removing cartItem ${cartItemId} from cart`);
 
     // Check the cart item exists and belongs to the user.
     const cartItem = await db.get(cartItemId);

@@ -31,7 +31,7 @@ export const reset = mutation({
     if (!identity) {
       throw new Error("reset called without user auth");
     }
-    console.log(`${identity.email} resetting application state`);
+    console.log(`${identity.name ?? identity.subject} resetting application state`);
 
     // Fetch items from each cart, perform an application-level join to get the
     // details for each item, and then reset the stock.
